@@ -1,0 +1,8 @@
+#library {
+  border: solid 2px black;
+  padding: 10px;
+}
+
+#bookDetails {
+  display: none;
+}
