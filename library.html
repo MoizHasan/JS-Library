@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="library.css">
+</head>
+<body>
 <button id="addBookButton">Add New Book</button>
 
 <form id= 'bookDetails'>
@@ -5,9 +13,18 @@
 <input type = "text" placeholder ="author"></input>
 <input type = "text" placeholder ="pages"></input>
 <input type = "checkbox">Read?</input>
-<input type = "submit">Save</input>
+<input type = "submit" id = 'bookSubmit'></input>
 </form>
 
 <div id = 'library'>
-  
+  <ul class="book">
+  	<li><h2>Title</h2></li>
+  	<li><h4>Author</h4></li>
+  	<li><h4>Pages</h4></li>
+  	<li><h4>Read</h4></li>
+  </ul>
 </div>
+
+<script src="library.js" type="text/javascript"></script>
+</body>
+</html>

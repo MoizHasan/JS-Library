@@ -1,8 +1,16 @@
 #library {
   border: solid 2px black;
   padding: 10px;
+  width: 320px;
+  display: block;
 }
 
 #bookDetails {
   display: none;
+}
+
+.book {
+	margin: 5px;
+	background-color: #ffdaa3;
+	list-style: none;
 }
