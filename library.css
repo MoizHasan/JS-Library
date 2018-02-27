@@ -14,3 +14,7 @@
 	background-color: #ffdaa3;
 	list-style: none;
 }
+
+.book button {
+	float: right;
+}
