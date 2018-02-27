@@ -14,8 +14,10 @@ function Book(title, author, pages, read, id = 0) {
   this.info = function() {
   	var readString = this.read ? "have read" : "not read";
 
-    return '<ul class="book" data-bookId =' + this.id + '><button class="delete">Delete</button><li><h2>' + this.title + ' </h2></li><li><h4>' + this.author +
-  	'</h4></li><li><h4>' + this.pages + ' pages</h4></li><li><h4>' + readString + '</h4></li></ul>';
+    return '<ul class="book" data-id =' + this.id + '><button class="delete">Delete</button><li><h2>' + this.title 
+    + ' </h2></li><li><h4>' + this.author +
+  	'</h4></li><li><h4>' + this.pages + ' pages</h4></li><li><h4>' + readString +
+  	 '</h4></li><button class="toggle">Change read status</button></ul>';
   }
 
   this.toggleRead = function() {
@@ -41,12 +43,18 @@ function addBookToLibrary() {
 
 function deleteBook() {
 	var book = event.target.parentElement;
-	var bookId = book.dataset.bookId;
-	myLibrary.splice(bookId, 1);
+	var id = book.dataset.id;
+	myLibrary.splice(id, 1);
 	//need to loop through our library and reset the ids.
 	for (var i = 0; i < myLibrary.length; i++) {
 		myLibrary[i].id = i;
 	}
+}
+
+function toggleRead() {
+	var book = event.target.parentElement;
+	var id = book.dataset.id;
+	myLibrary[id].toggleRead();
 }
 
 //add our books to the html
@@ -80,6 +88,13 @@ document.getElementById("bookSubmit").addEventListener("click", function(event) 
 document.addEventListener("click", function(event) {
 	if(event.target.classList.contains('delete')) {
 	  deleteBook();
+	  render();
+	}
+});
+
+document.addEventListener("click", function(event) {
+	if(event.target.classList.contains('toggle')) {
+	  toggleRead();
 	  render();
 	}
 });
